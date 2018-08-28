@@ -1,0 +1,74 @@
+<h4>Crear Usuario</h4>
+<div class="form-group">
+    <label for="usr">Nombre:</label>
+    <input
+    type="text"
+    class="form-control"
+    name="nombre"
+    [(ngModel)]="modelo.nombre"
+    #nombre="ngModel"
+    >
+    <label for="pwd">Posicion:</label>
+    <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="modelo.posicion"
+    name="posicion"
+    #posicion="ngModel"
+    >
+    <button
+    type="submit"
+    (click)="agregaEmpleado()"
+    >crear</button>
+</div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Posicion</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let empleado of empleados;
+                  let i=index"
+      >
+        <td>{{empleado.nombre}}</td>
+        <td>{{empleado.posicion}}</td>
+        <td>
+          <a class="btn btn-success"
+          (click)="editarEmpleado(i)"
+          >...</a>
+          <a class="btn btn-danger"
+          (click)="eliminarEmpleado(i)"
+          >X</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Actualizar Usuario</h4>
+<div class="form-group">
+    <label for="usr">Nombre:</label>
+    <input
+    type="text"
+    class="form-control"
+    name="nombre"
+    [(ngModel)]="modelo2.nombre"
+    #nombre="ngModel"
+    >
+    <label for="pwd">Posicion:</label>
+    <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="modelo2.posicion"
+    name="posicion"
+    #posicion="ngModel"
+    >
+    <button
+    type="submit"
+    (click)="actualizaEmpleado()"
+    >actualizar</button>
+</div>
